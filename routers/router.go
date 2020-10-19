@@ -32,6 +32,7 @@ func InitRouter() *gin.Engine {
 
 		// 话题
 		apiv1.GET("/topics/:id", v1.GetTopic)
+		apiv1.GET("/topics", v1.GetTopics)
 	}
 
 	return r
