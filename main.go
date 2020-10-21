@@ -1,6 +1,7 @@
 package main
 
 import (
+	"JalanJiang/douban-tool-server/migrations"
 	"JalanJiang/douban-tool-server/pkg/setting"
 	"JalanJiang/douban-tool-server/routers"
 	"fmt"
@@ -19,6 +20,9 @@ func main() {
 		WriteTimeout:   setting.WriteTimeout,
 		MaxHeaderBytes: 1 << 20,
 	}
+
+	// 数据库文件迁移
+	migrations.Migrate()
 
 	s.ListenAndServe()
 }
