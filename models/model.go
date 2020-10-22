@@ -46,9 +46,6 @@ func init() {
 	if err != nil {
 		log.Println("DB Connect error: %v", err)
 	}
-
-	// 创建表迁移
-	Db.Migrator().CreateTable(&UserSubscription{})
 }
 
 // func CloseDB() {

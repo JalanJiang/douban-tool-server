@@ -1,7 +1,6 @@
 package main
 
 import (
-	"JalanJiang/douban-tool-server/migrations"
 	"JalanJiang/douban-tool-server/pkg/setting"
 	"JalanJiang/douban-tool-server/routers"
 	"fmt"
@@ -22,7 +21,8 @@ func main() {
 	}
 
 	// 数据库文件迁移
-	migrations.Migrate()
+	// TODO：写到脚本中
+	// migrations.Migrate()
 
 	s.ListenAndServe()
 }
