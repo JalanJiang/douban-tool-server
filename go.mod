@@ -8,6 +8,6 @@ require (
 	golang.org/x/crypto v0.0.0-20201012173705-84dcc777aaee // indirect
 	golang.org/x/text v0.3.3
 	gopkg.in/ini.v1 v1.62.0
-	gorm.io/driver/postgres v1.0.2 // indirect
+	gorm.io/driver/postgres v1.0.2
 	gorm.io/gorm v1.20.2
 )
