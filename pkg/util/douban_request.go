@@ -70,6 +70,7 @@ func SendRequest(uri string, params string) ([]byte, error) {
 	if err != nil {
 		log.Fatalf("Query topic failed: %v", err)
 	}
+	// fmt.Println(resp.Body)
 	responseData, _ := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
 

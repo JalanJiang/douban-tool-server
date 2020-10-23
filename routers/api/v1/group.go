@@ -74,6 +74,6 @@ func GetGroups(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"data": responseData,
 		"code": 0,
-		"msg":  "test",
+		"msg":  "",
 	})
 }
