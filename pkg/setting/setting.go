@@ -2,6 +2,7 @@ package setting
 
 import (
 	"log"
+	"os"
 	"time"
 
 	"gopkg.in/ini.v1"
@@ -20,6 +21,9 @@ var (
 	ReadTimeout time.Duration
 	// WriteTimeout 写超时
 	WriteTimeout time.Duration
+
+	// JwtSecret JWT 密钥
+	JwtSecret string
 )
 
 func init() {
@@ -31,6 +35,7 @@ func init() {
 	}
 
 	loadServer()
+	loadApp()
 }
 
 func loadServer() {
@@ -45,4 +50,15 @@ func loadServer() {
 	HTTPPort = sec.Key("HTTP_PORT").MustInt(8000)
 	ReadTimeout = time.Duration(sec.Key("READ_TIMEOUT").MustInt(60)) * time.Second
 	WriteTimeout = time.Duration(sec.Key("WRITE_TIMEOUT").MustInt(69)) * time.Second
+}
+
+func loadApp() {
+	JwtSecret = getenv("JWT_SECRET", "*($#&^#%^!(#)_@$#!")
+}
+
+func getenv(key, fallback string) string {
+	if value, ok := os.LookupEnv(key); ok {
+		return value
+	}
+	return fallback
 }
