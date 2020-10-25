@@ -1,6 +1,7 @@
 package routers
 
 import (
+	"JalanJiang/douban-tool-server/middleware/jwt"
 	v1 "JalanJiang/douban-tool-server/routers/api/v1"
 
 	"github.com/gin-gonic/gin"
@@ -13,14 +14,11 @@ func InitRouter() *gin.Engine {
 	// r.Use(gin.Logger())
 	// r.Use(gin.Recovery())
 	// gin.SetMode(setting.RunMode)
-
-	// TODO: 中间件
+	apiv1.POST("/users/login", v1.Login)
 
 	apiv1 := r.Group("/api/v1")
+	apiv1.Use(jwt.JWT()) // 引入中间件
 	{
-		// 用户
-		apiv1.POST("/users/login", v1.Login)
-
 		// 订阅
 		apiv1.GET("/subscriptions", v1.GetSubscriptions)
 		apiv1.POST("/subscriptions", v1.AddSubscription)
