@@ -1,8 +1,11 @@
 package e
 
 const (
-	SUCCESS        = 200
-	ERROR          = 500
-	INVALID_PARAMS = 400
-	NOT_FOUND      = 404
+	SUCCESS        = "success"
+	ERROR          = "error"
+	INVALID_PARAMS = "invalid.params"
+	NOT_FOUND      = "not.found"
+	ERROR_AUTH_CHECK_TOKEN_FAIL = "check_token.failed"
+	ERROR_AUTH_CHECK_TOKEN_TIMEOUT = "check_token.timeout"
+	LOGIN_FAIL = "login.failed"
 )
